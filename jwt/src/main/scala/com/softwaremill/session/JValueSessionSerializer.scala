@@ -16,8 +16,8 @@ object JValueSessionSerializer {
   }
 
   implicit def longToJValueSessionSerializer: SessionSerializer[Long, JValue] = new SessionSerializer[Long, JValue] {
-    override def serialize(t: Long) = JInt(t)
-    override def deserialize(s: JValue) = failIfNoMatch(s) { case JInt(v) => v.longValue() }
+    override def serialize(t: Long) = JLong(t)
+    override def deserialize(s: JValue) = failIfNoMatch(s) { case JLong(v) => v }
   }
 
   implicit def floatToJValueSessionSerializer: SessionSerializer[Float, JValue] = new SessionSerializer[Float, JValue] {
